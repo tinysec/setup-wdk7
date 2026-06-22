@@ -15,7 +15,6 @@ runner starts clean.
   the default `C:\WinDDK` installation path.
 - Downloads, extracts, and caches WDK7 automatically on Windows runners.
 - Exposes a bundled CMake toolchain for `i386` and `amd64` builds.
-- Provides private WDK7 compatibility headers, including `stdint.h`.
 - Supports user-mode binaries, kernel `.sys` targets, and legacy
   `ddkbuild.cmd` projects.
 - Optionally prepares the Debugging Tools SDK for DbgEng and WinDbg extension

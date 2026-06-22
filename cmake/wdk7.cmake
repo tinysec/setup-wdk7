@@ -133,9 +133,6 @@ set(WDK7_CL     "${WDK7_BIN}/cl.exe")
 set(WDK7_LINK   "${WDK7_BIN}/link.exe")
 set(WDK7_RC     "${WDK7_HOST_BIN}/rc.exe")
 set(WDK7_NMAKE  "${WDK7_HOST_BIN}/nmake.exe")
-get_filename_component(_WDK7_TOOLCHAIN_DIR "${CMAKE_CURRENT_LIST_FILE}" DIRECTORY)
-get_filename_component(_WDK7_ACTION_ROOT "${_WDK7_TOOLCHAIN_DIR}" DIRECTORY)
-set(WDK7_COMPAT_INCLUDE_DIR "${_WDK7_ACTION_ROOT}/include")
 
 foreach (_tool IN ITEMS WDK7_CL WDK7_LINK WDK7_RC WDK7_NMAKE)
     if (NOT EXISTS "${${_tool}}")
@@ -156,14 +153,12 @@ endif()
 set(ENV{PATH} "${WDK7_BIN};${WDK7_HOST_BIN};$ENV{PATH}")
 
 set(WDK7_USER_INCLUDE_DIRS
-        "${WDK7_COMPAT_INCLUDE_DIR}"
         "${WDK7_ROOT}/inc/api/crt/stl70"
         "${WDK7_ROOT}/inc/atl71"
         "${WDK7_ROOT}/inc/crt"
         "${WDK7_ROOT}/inc/api"
         "${WDK7_ROOT}/inc/ddk")
 set(WDK7_KERNEL_INCLUDE_DIRS
-        "${WDK7_COMPAT_INCLUDE_DIR}"
         "${WDK7_ROOT}/inc/crt"
         "${WDK7_ROOT}/inc/ddk"
         "${WDK7_ROOT}/inc/api")
